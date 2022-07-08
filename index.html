@@ -38,10 +38,11 @@
                 success: function(utenti){
                     for(var utente of utenti)
                     {
-                        $('#dati-anagrafici').append($('<tr/>'));
-                        $('#dati-anagrafici>tr').append($('<td/>').append(utente.firstName));
-                        $('#dati-anagrafici>tr').append($('<td/>').append(utente.secondName));
-                        $('#dati-anagrafici>tr').append($('<td/>').append(utente.age));
+                        var tr = $("<tr/>");
+                        $('#dati-anagrafici').append(tr);
+                        tr.append($('<td/>').append(utente.firstName));
+                        tr.append($('<td/>').append(utente.secondName));
+                        tr.append($('<td/>').append(utente.age));
                     }
                 }
             });        
