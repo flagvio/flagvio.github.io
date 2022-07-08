@@ -39,9 +39,9 @@
                     for(var utente of utenti)
                     {
                         $('#dati-anagrafici').append($('<tr/>'));
-                        $('#dati-anagrafici>tr').append($('<td/>').append(firstName));
-                        $('#dati-anagrafici>tr').append($('<td/>').append(secondName));
-                        $('#dati-anagrafici>tr').append($('<td/>').append(age));
+                        $('#dati-anagrafici>tr').append($('<td/>').append(utente.firstName));
+                        $('#dati-anagrafici>tr').append($('<td/>').append(utente.secondName));
+                        $('#dati-anagrafici>tr').append($('<td/>').append(utente.age));
                     }
                 }
             });        
