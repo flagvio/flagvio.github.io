@@ -38,10 +38,15 @@
                 success: function(utenti){
                     for(var utente of utenti)
                     {
-                        $('#dati-anagrafici').append($('<tr/>'));
-                        $('#dati-anagrafici>tr').append($('<td/>').append(utente.firstName));
-                        $('#dati-anagrafici>tr').append($('<td/>').append(utente.secondName));
-                        $('#dati-anagrafici>tr').append($('<td/>').append(utente.age));
+                        var tr = $('<tr/>');
+                        var tdFirstName = $('<td/>').text(utente.firstName);
+                        tr.append(tdFirstName);
+                        var tdSurname = $('<td/>').text(utente.secondName);
+                        tr.append(tdSurname);
+                        var tdAge = $('<td/>').text(utente.age);
+                        tr.append(tdAge);
+
+                        $('#dati-anagrafici').append(tr);
                     }
                 }
             });        
