@@ -28,13 +28,26 @@
                 
                 </tbody>
             </table>
-
+            <table id="table">
+                <thead>
+                    <tr colspan="3">
+                        <th colspan="3">Dati conto</th>
+                    </tr>
+                    <tr>
+                        <th>UserID</th>
+                        <th>Account balance</th>
+                    </tr>
+                </thead>
+                <tbody id="dati-conto">
+                
+                </tbody>
+            </table>
 
         <script>
 
             $.ajax({
                 method: "GET",
-                url: "http://localhost:5097/api/Conto",
+                url: "http://localhost:5097/api/Customer",
                 success: function(utenti){
                     for(var utente of utenti)
                     {
@@ -47,6 +60,19 @@
                 }
             });        
            
+            $.ajax({
+                method: "GET",
+                url: http://localhost:5097/api/Conto",
+                success: function(conti){
+                    for(var conto of conti)
+                    {
+                        var tr = $("<tr/>");
+                        $('#dati-conto').append(tr);
+                        tr.append($('<td/>').append(utente.UserID));
+                        tr.append($('<td/>').append(utente.AccountBalance));
+                    }
+                }
+            });
         </script>
     </body>
 </html>
