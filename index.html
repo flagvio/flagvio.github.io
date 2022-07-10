@@ -62,13 +62,13 @@
            
             $.ajax({
                 method: "GET",
-                url: http://localhost:5097/api/Conto",
+                url:"http://localhost:5097/api/Conto",
                 success: function(conti){
                     for(var conto of conti)
                     {
                         var tr = $("<tr/>");
                         $('#dati-conto').append(tr);
-                        tr.append($('<td/>').append(utente.UserID));
+                        tr.append($('<td/>').append(utente.UserId));
                         tr.append($('<td/>').append(utente.AccountBalance));
                     }
                 }
