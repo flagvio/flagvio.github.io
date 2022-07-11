@@ -38,16 +38,7 @@
            return $.ajax({
                 method: "GET",
                 url: "http://localhost:5097/api/Customer",
-                success: function(utenti){
-                    for(var utente of utenti)
-                    {
-                        var tr = $("<tr/>");
-                        $('#dati-anagrafici').append(tr);
-                        tr.append($('<td/>').append(utente.firstName));
-                        tr.append($('<td/>').append(utente.secondName));
-                        tr.append($('<td/>').append(utente.age));
-                    }
-                }
+                success: function(utenti){}
             });  
         };
             
@@ -55,32 +46,26 @@
             return $.ajax({
                 method: "GET",
                 url:"http://localhost:5097/api/Conto",
-                success: function(conti){
-                    for(var conto of conti)
-                    {
-                        var tr = $("<tr/>");
-                        $('#dati-conto').append(tr);
-                        tr.append($('<td/>').append(conto.accountBalance));
-                        tr.append($('<td/>').append(conto.userId));
-                    }
-                }
+                success: function(conti){}
             });
         };
         $.when(GetCustomers(), GetConti()).done(function(utenti, conti){
-           utentiConti = new Array();
-           for(var uc of utenti)
-           {
+            for(var utente of utenti)
+            {
                  var tr = $("<tr/>");
                  $('#dati').append(tr);
                  tr.append($('<td/>').append(uc.firstName));
                  tr.append($('<td/>').append(uc.secondName));
-                 tr.append($('<td/>').append(uc.age));      
-                 for(var uc of conti)
-                 {
-                     tr.append($('<td/>').append(conto.accountBalance));
-                     tr.append($('<td/>').append(conto.userId));
-                 }
-           }
+                 tr.append($('<td/>').append(uc.age));    
+                for(var conto of conti)
+                {
+                    if(utente.userId == conto.userId)
+                    {
+                        tr.append($('<td/>').append(uc.accountBalance));
+                        tr.append($('<td/>').append(uc.userId));
+                    }
+                }
+            }
         });
         </script>
     </body>
