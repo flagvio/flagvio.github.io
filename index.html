@@ -49,19 +49,22 @@
                 success: function(conti){}
             });
         };
+            
         $.when(GetCustomers(), GetConti()).done(function(utenti, conti){    
-            var arrayUtenti = [];
-            for (var utente of utenti)
+        for(var utente of utenti)
             {
-                var conto = conti.find(conto => conto.userid == utente.userid);
-                var utenteConConto = ();
-
-                utenteConConto.firstname = utente.firstname;
-                utenteConConto.secondname = utente.secondname;
-                utenteConConto.userid = utente.userid;
-                utenteConConto.balance = conto.balance:
-
-                arrayUtenti.push(utenteConConto);
+                var tr = $("<tr/>");
+                $('#dati').append(tr);
+                tr.append($('<td/>').text(utente.firstName));
+                tr.append($('<td/>').text(utente.secondName));
+                tr.append($('<td/>').text(utente.age));    
+                for(var conto of conti)
+                {
+                    if(utente.userId == conto.userId)
+                    {
+                        tr.append($('<td/>').text(conto.accountBalance));
+                    }
+                }
             }
       
         });
