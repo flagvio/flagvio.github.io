@@ -45,9 +45,11 @@
             });
         };
             
-        $.when(GetCustomers(), GetConti()).done(function(utenti, conti){    
-            console.log(utenti);
-            console.log(conti);
+        $.when(GetCustomers(), GetConti()).done(function(responseUsers, responseConti){    
+            console.log(responseUsers);
+            console.log(responseConti);
+            var utenti = responseUsers[0];
+            var conti = responseConti[0];
             for(var utente of utenti)
             {
                 var tr = $("<tr/>");
