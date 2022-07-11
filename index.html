@@ -54,17 +54,16 @@
             {
                  var tr = $("<tr/>");
                  $('#dati').append(tr);
-                 tr.append($('<td/>').append(utente.firstName));
-                 tr.append($('<td/>').append(utente.secondName));
-                 tr.append($('<td/>').append(utente.age));    
-                for(var conto of conti)
-                {
-                    if(utente.userId == conto.userId)
+                 tr.append($('<td/>').text(utente.firstName));
+                 tr.append($('<td/>').text(utente.secondName));
+                 tr.append($('<td/>').text(utente.age));    
+                 for(var conto of conti)
+                 {
+                    if(utente.userid == conto.userid)
                     {
-                        tr.append($('<td/>').append(conto.accountBalance));
-                        tr.append($('<td/>').append(conto.userId));
+                        tr.append($('<td/>').text(conto.accountBalance));
                     }
-                }
+                 }
             }
         });
         </script>
