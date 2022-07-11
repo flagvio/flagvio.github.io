@@ -22,31 +22,19 @@
                         <th>Nome</th>
                         <th>Cognome</th>
                         <th>Età</th>
+                        <th>Account Balance</th>
                     </tr>
                 </thead>
-                <tbody id="dati-anagrafici">
+                <tbody id="dati">
                 
                 </tbody>
             </table>
-            <br><br><br><br>
-            <table id="table">
-                <thead>
-                    <tr colspan="3">
-                        <th colspan="3">Dati conto</th>
-                    </tr>
-                    <tr>
-                        <th>Account balance</th>
-                        <th>UserID</th>
-                    </tr>
-                </thead>
-                <tbody id="dati-conto">
-                
-                </tbody>
-            </table>
+
+
 
         <script>
-
-            $.ajax({
+        var GetCustomers = function(){
+           return $.ajax({
                 method: "GET",
                 url: "http://localhost:5097/api/Customer",
                 success: function(utenti){
@@ -59,9 +47,11 @@
                         tr.append($('<td/>').append(utente.age));
                     }
                 }
-            });        
-           
-            $.ajax({
+            });  
+        };
+            
+        var GetConti = function(){    
+            return $.ajax({
                 method: "GET",
                 url:"http://localhost:5097/api/Conto",
                 success: function(conti){
@@ -74,6 +64,24 @@
                     }
                 }
             });
+        };
+        $.when(GetCustomers(), GetConti()).done(function(utenti, conti){
+            var tr = $("<tr/>");
+            for(var utente of utenti)
+            {
+                $('#dati').append(tr);
+                        tr.append($('<td/>').append(utente.firstName));
+                        tr.append($('<td/>').append(utente.secondName));
+                        tr.append($('<td/>').append(utente.age));
+                for(var conto of conti)
+                {
+                        var tr = $("<tr/>");
+                        $('#dati').append(tr);
+                        tr.append($('<td/>').append(conto.accountBalance));
+                        tr.append($('<td/>').append(conto.userId));                  
+                }
+            }
+        });
         </script>
     </body>
 </html>
