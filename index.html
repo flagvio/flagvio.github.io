@@ -38,14 +38,7 @@
                 method: "GET",
                 url: "http://localhost:5097/api/Customer",
                 success: function(utenti){
-                    for(var utente of utenti)
-                    {
-                        var tr = $("<tr/>");
-                        $('#dati-anagrafici').append(tr);
-                        tr.append($('<td/>').append(utente.firstName));
-                        tr.append($('<td/>').append(utente.secondName));
-                        tr.append($('<td/>').append(utente.age));
-                    }
+                    
                 }
             });  
         };
@@ -55,13 +48,7 @@
                 method: "GET",
                 url:"http://localhost:5097/api/Conto",
                 success: function(conti){
-                    for(var conto of conti)
-                    {
-                        var tr = $("<tr/>");
-                        $('#dati-conto').append(tr);
-                        tr.append($('<td/>').append(conto.accountBalance));
-                        tr.append($('<td/>').append(conto.userId));
-                    }
+                  
                 }
             });
         };
