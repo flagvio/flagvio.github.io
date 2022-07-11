@@ -38,7 +38,9 @@
            return $.ajax({
                 method: "GET",
                 url: "http://localhost:5097/api/Customer",
-                success: function(utenti){}
+                success: function(utenti){
+                    console.log(utenti);
+                }
             });  
         };
             
@@ -46,7 +48,9 @@
             return $.ajax({
                 method: "GET",
                 url:"http://localhost:5097/api/Conto",
-                success: function(conti){}
+                success: function(conti){
+                    console.log(conti);
+                }
             });
         };
             
