@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+
+        <h1>Customer registration</h1>
+        <input type="text" id="firstname" placeholder="Insert the firstname" /><br>
+        <input type="text" id="secondname" placeholder="Insert the secondname" /><br>
+        <input type="number" id="age" min="16" placeholder="Insert the age" /><br>
+        <input type="text" id="userid" placeholder="Insert the userid" /><br>
+        <input type="number" id="accountbalance" max="1000" placeholder="Insert the account balance" /><br>
+        <input type="text" id="contoid" placeholder="Insert the contoid" /><br>
+        <input type="button" value="Register new user and conto" onclick="CustomerRegistration()" />
+
+        <script>
+            var insertUser = function (user) {
+                return $.ajax({
+                    data: JSON.stringify(user),
+                    type: 'POST',
+                    url: "http://localhost:5097/api/Customer"
+                });
+            };
+
+            var insertConto = function (conto) {
+                return $.ajax({
+                    data: JSON.stringify(conto),
+                    type: 'POST',
+                    url: "http://localhost:5097/api/Conto"
+                });
+            }
+
+            var CustomerRegistration = function () {
+                console.log("Start CustomerRegistration");
+                var user = {
+                    userid: $('#userid').val(),
+                    firstname: $('#firstname').val(),
+                    secondname: $('#secondname').val(),
+                    age: parseInt($('#age').val())
+                };
+                var conto = {
+                    userid: $('#userid').val(),
+                    contoid: $('#contoid').val(),
+                    accountbalance: parseInt($('#accountbalance').val())
+                };
+                console.log(user);
+                console.log(conto);
+                $.when(insertUser(user), insertConto(conto)).done(function (){
+                    $('#userid').val('');
+                    $('#firstname').val('');
+                    $('#secondname').val('');
+                    $('#age').val('');
+                    $('#userid').val('');
+                    $('#contoid').val('');
+                    $('#accountbalance').val('');
+                    
+                    alert("Utente e conto creati con successo");
+                });
+            };
+
+        </script>
+
+    </body>
+</html>
