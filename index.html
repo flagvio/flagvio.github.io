@@ -52,7 +52,7 @@
             var conti = responseConti[0];
             for(var utente of utenti)
             {
-                var tr = $("<tr/>");
+                var tr = $("<tr/>").attr("id", conto.contoId);
                 $('#dati').append(tr);
                 tr.append($('<td/>').text(utente.firstName));
                 tr.append($('<td/>').text(utente.secondName));
@@ -63,6 +63,7 @@
                     {
                         tr.append($('<td/>').text(conto.accountBalance));
                         tr.append($('<td/>').text(conto.userId));
+                        tr.append($('<td/>').text(conto.contoId));
                     }
                 }
             }
