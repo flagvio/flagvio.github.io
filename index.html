@@ -21,6 +21,7 @@
                         <th>Età</th>
                         <th>Account Balance</th>
                         <th>User ID</th>
+                        <th>Conto ID</th>
                     </tr>
                 </thead>
                 <tbody id="dati"></tbody>
@@ -52,20 +53,16 @@
             var conti = responseConti[0];
             for(var utente of utenti)
             {
+                var conto = conti.find(c => c.userId == utente.userId);
                 var tr = $("<tr/>").attr("id", conto.contoId);
                 $('#dati').append(tr);
                 tr.append($('<td/>').text(utente.firstName));
                 tr.append($('<td/>').text(utente.secondName));
                 tr.append($('<td/>').text(utente.age));    
-                for(var conto of conti)
-                {
-                    if(utente.userId == conto.userId)
-                    {
-                        tr.append($('<td/>').text(conto.accountBalance));
-                        tr.append($('<td/>').text(conto.userId));
-                        tr.append($('<td/>').text(conto.contoId));
-                    }
-                }
+                tr.append($('<td/>').text(conto.accountBalance));
+                tr.append($('<td/>').text(conto.userId));
+                tr.append($('<td/>').text(conto.contoId));
+
             }
       
         });   
