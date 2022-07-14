@@ -25,7 +25,6 @@
                     headers: {
                         'Content-Type': "application/json",    
                     },
-                    dataType: "json",
                     type: 'POST',
                     url: "http://localhost:5097/api/Customer"
                 });
@@ -57,7 +56,7 @@
                 };
                 console.log(user);
                 console.log(conto);
-                $.when(insertUser(user), insertConto(conto)).done(function (){
+                $.when(insertUser(user), insertConto(conto)).then(function (r1, r2){
                     $('#userid').val('');
                     $('#firstname').val('');
                     $('#secondname').val('');
