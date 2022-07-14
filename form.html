@@ -22,6 +22,7 @@
             var insertUser = function (user) {
                 return $.ajax({
                     data: JSON.stringify(user),
+                    dataType: "json",
                     type: 'POST',
                     url: "http://localhost:5097/api/Customer"
                 });
@@ -30,6 +31,7 @@
             var insertConto = function (conto) {
                 return $.ajax({
                     data: JSON.stringify(conto),
+                    dataType: "json",
                     type: 'POST',
                     url: "http://localhost:5097/api/Conto"
                 });
