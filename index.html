@@ -51,7 +51,7 @@
         var DeleteCustomer = function(var userid){
            return $.ajax({
                 method: "DELETE",
-                url: "http://localhost:5097/api/Customer",
+                url: "http://localhost:5097/api/Customer" + userid,
                 success: function(userid){}
             });  
         };
@@ -59,7 +59,7 @@
         var DeleteConto = function(var contoid){
            return $.ajax({
                 method: "DELETE",
-                url: "http://localhost:5097/api/Conto",
+                url: "http://localhost:5097/api/Conto" + contoid,
                 success: function(contoid){}
             });  
         };
