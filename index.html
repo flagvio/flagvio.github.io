@@ -52,7 +52,7 @@
            return $.ajax({
                 method: "DELETE",
                 url: "http://localhost:5097/api/Customer" + userid,
-                success: function(userid){}
+                success: function(utenti){}
             });  
         };
                    
@@ -60,8 +60,13 @@
            return $.ajax({
                 method: "DELETE",
                 url: "http://localhost:5097/api/Conto" + contoid,
-                success: function(contoid){}
+                success: function(conti){}
             });  
+        };
+            
+        var deleteAll = function(userid, contoid){
+            console.log(this);
+
         };
             
         $.when(GetCustomers(), GetConti()).done(function(responseUsers, responseConti){    
@@ -80,16 +85,10 @@
                 tr.append($('<td/>').text(conto.accountBalance));
                 tr.append($('<td/>').text(conto.userId));
                 tr.append($('<td/>').text(conto.contoId));
-                tr.append($('<td/>').append($('<i/>').addClass("fa fa-trash").click(deleteAll)));
+                tr.append($('<td/>').append($('<i/>').addClass("fa fa-trash").click(function(){  deleteAll(utente.userId, conto.contoId)})));
             }
         });  
-        var deleteAll = function(userid, contoid){
-            console.log(this);
-            $.when(DeleteCustomer(userid), DeleteConto(contoid)).then(function (){
-                console.log("hello world");
-                
-            });
-        };
+
             
         </script>
     </body>
