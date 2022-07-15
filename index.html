@@ -94,7 +94,7 @@
                     $('<i/>').addClass("fa fa-trash").click(
                         (function(userId, contoId){
                             return function() {
-                                DeleteAll(userId, contoId);
+                                deleteAll(userId, contoId);
                             };
                     })(utente.userId, utente.contoId)
                         )
