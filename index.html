@@ -48,7 +48,7 @@
             });
         };
             
-        var DeleteCustomer = function(var userid){
+        var DeleteCustomer = function(userid){
            return $.ajax({
                 method: "DELETE",
                 url: "http://localhost:5097/api/Customer" + userid,
@@ -56,7 +56,7 @@
             });  
         };
                    
-        var DeleteConto = function(var contoid){
+        var DeleteConto = function(contoid){
            return $.ajax({
                 method: "DELETE",
                 url: "http://localhost:5097/api/Conto" + contoid,
@@ -64,7 +64,7 @@
             });  
         };
             
-        var DeleteRow = function(var userId, var contoId){
+        var DeleteRow = function(userId, contoId){
             DeleteCustomer(userId);
             DeleteConto(contoId);
         }
