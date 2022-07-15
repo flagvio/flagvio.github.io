@@ -48,6 +48,27 @@
             });
         };
             
+        var DeleteCustomer = function(var userid){
+           return $.ajax({
+                method: "DELETE",
+                url: "http://localhost:5097/api/Customer",
+                success: function(userid){}
+            });  
+        };
+                   
+        var DeleteConto = function(var contoid){
+           return $.ajax({
+                method: "DELETE",
+                url: "http://localhost:5097/api/Conto",
+                success: function(contoid){}
+            });  
+        };
+            
+        var DeleteRow = function(var userId, var contoId){
+            DeleteCustomer(userId);
+            DeleteConto(contoId);
+        }
+            
         $.when(GetCustomers(), GetConti()).done(function(responseUsers, responseConti){    
             console.log(responseUsers);
             console.log(responseConti);
@@ -64,7 +85,7 @@
                 tr.append($('<td/>').text(conto.accountBalance));
                 tr.append($('<td/>').text(conto.userId));
                 tr.append($('<td/>').text(conto.contoId));
-                tr.append($('<td/>').append($('<i/>').addClass("fa fa-trash")));
+                tr.append($('<td/>').append($('<i/>').addClass("fa fa-trash").onClick(DeleteRow(utente.userId, conto.ContoId))));
             }
       
         });   
