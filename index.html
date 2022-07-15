@@ -65,9 +65,10 @@
         };
             
         var deleteAll = function(userid, contoid){
-           if(confirm("Sicuro di voler cancellare "+?"
-            $.when(DeleteCustomer(userid), DeleteConto(contoid)).done(function(responseUsers, responseConti)
-                &('#'+contoId).remove();
+            if(confirm(`Sicuro di voler cancellare ${contoid}?`){
+                $.when(DeleteCustomer(userid), DeleteConto(contoid)).done(function(responseUsers, responseConti)
+                    &('#'+contoId).remove();
+            }
         };
             
         $.when(GetCustomers(), GetConti()).done(function(responseUsers, responseConti){    
