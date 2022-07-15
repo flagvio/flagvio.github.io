@@ -66,8 +66,9 @@
             
         var deleteAll = function(userid, contoid){
             if(confirm(`Sicuro di voler cancellare ${contoid}?`)){
-                $.when(DeleteCustomer(userid), DeleteConto(contoid)).done(function(responseUsers, responseConti)
+                $.when(DeleteCustomer(userid), DeleteConto(contoid)).done(function(responseUsers, responseConti){
                     $('#'+contoId).remove();
+                });
             }
         };
             
