@@ -64,11 +64,6 @@
             });  
         };
             
-        var DeleteRow = function(userId, contoId){
-            DeleteCustomer(userId);
-            DeleteConto(contoId);
-        }
-            
         $.when(GetCustomers(), GetConti()).done(function(responseUsers, responseConti){    
             console.log(responseUsers);
             console.log(responseConti);
@@ -85,7 +80,7 @@
                 tr.append($('<td/>').text(conto.accountBalance));
                 tr.append($('<td/>').text(conto.userId));
                 tr.append($('<td/>').text(conto.contoId));
-                tr.append($('<td/>').append($('<i/>').addClass("fa fa-trash").onClick(DeleteRow(utente.userId, conto.ContoId))));
+                tr.append($('<td/>').append($('<i/>').addClass("fa fa-trash")));
             }
       
         });   
