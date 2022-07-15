@@ -65,8 +65,9 @@
         };
             
         var deleteAll = function(userid, contoid){
-            console.log(this);
-
+           if(confirm("Sicuro di voler cancellare "+?"
+            $.when(DeleteCustomer(userid), DeleteConto(contoid)).done(function(responseUsers, responseConti)
+                &('#'+contoId).remove();
         };
             
         $.when(GetCustomers(), GetConti()).done(function(responseUsers, responseConti){    
@@ -91,7 +92,7 @@
                     $('<i/>').addClass("fa fa-trash").click(
                         (function(userId, contoId){
                             return function() {
-                                DeleteContoUser(userId, contoId);
+                                DeleteAll(userId, contoId);
                             };
                     })(utente.userId, utente.contoId)
                         )
